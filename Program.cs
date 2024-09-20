@@ -37,14 +37,14 @@
                 var jsonDocument = JsonDocument.Parse(responseBody);
                 var formattedJson = JsonSerializer.Serialize(jsonDocument, new JsonSerializerOptions { WriteIndented = true });
                 
-                foreach ( var item in formattedJson ) 
+                foreach ( var item in jsonDocument.RootElement.EnumerateArray() ) 
                 {
-                    Console.WriteLine(item);
+                    var type = item.GetProperty("type").GetString();
+                    var action = string.Empty;
+                    var repoName = item.GetProperty("repo").GetProperty("name").GetString();
+                    Console.WriteLine($"{type}" + " " + $"{repoName}");
                 }
-                
 
-                
-                Console.WriteLine(formattedJson);
             }
             catch (HttpRequestException e)
             {

@@ -12,3 +12,4 @@ C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\refint\GitHub-UA
 C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\GitHub-UA-CLI.pdb
 C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\GitHub-UA-CLI.genruntimeconfig.cache
 C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\ref\GitHub-UA-CLI.dll
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\GitHub-UA-CLI.sourcelink.json
