@@ -1,0 +1,14 @@
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\GitHub-UA-CLI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\GitHub-UA-CLI.AssemblyInfoInputs.cache
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\GitHub-UA-CLI.AssemblyInfo.cs
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\GitHub-UA-CLI.csproj.CoreCompileInputs.cache
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\bin\Debug\net7.0\GitHub-UA-CLI.exe
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\bin\Debug\net7.0\GitHub-UA-CLI.deps.json
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\bin\Debug\net7.0\GitHub-UA-CLI.runtimeconfig.json
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\bin\Debug\net7.0\GitHub-UA-CLI.dll
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\bin\Debug\net7.0\GitHub-UA-CLI.pdb
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\GitHub-UA-CLI.dll
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\refint\GitHub-UA-CLI.dll
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\GitHub-UA-CLI.pdb
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\GitHub-UA-CLI.genruntimeconfig.cache
+C:\Users\Franco Sistemas\Desktop\GitHub-UA-CLI\obj\Debug\net7.0\ref\GitHub-UA-CLI.dll
