@@ -23,10 +23,79 @@
             }
             else
             {
-                string username = args[0];
+                string username = args[0].Trim();
                 url = $"https://api.github.com/users/{username}/events";
             }
 
+            var jsonDocument = await GetUserEvents(client, url);
+
+            foreach (var item in jsonDocument.RootElement.EnumerateArray())
+            {
+                var type = item.GetProperty("type").GetString();
+                var action = string.Empty;
+                var repoName = item.GetProperty("repo").GetProperty("name").GetString();
+                var payload = item.GetProperty("payload");
+
+                switch (type)
+                {
+                    case "WatchEvent":
+                        action = $"Starred {repoName}";
+                        break;
+                    case "PushEvent":
+                        var numberCommits = payload.GetProperty("size");
+                        action = $"Pushed {numberCommits} commits to {repoName}";
+                        break;
+                    case "CreateEvent":
+                        action = $"Created {repoName}";
+                        break;
+                    case "DeleteEvent":
+                        action = $"Deleted {repoName}";
+                        break;
+                    case "ForkEvent":
+                        action = $"Forked {repoName}";
+                        break;
+                    case "IssuesEvent":
+                        var issueAction = payload.GetProperty("action").GetString();
+                        if (issueAction != null)
+                        {
+                            action = $"{char.ToUpper(issueAction[0])}{issueAction[1..]} an issue in {repoName}";
+                        }
+                        break;
+                    case "IssueCommentEvent":
+                        var issueCommentAction = payload.GetProperty("action").GetString();
+                        if (issueCommentAction != null)
+                        {
+                            action = $"{char.ToUpper(issueCommentAction[0])}{issueCommentAction[1..]} an issue comment in {repoName}";
+                        }
+                        break;
+                    case "PullRequestEvent":
+                        var pullRequestAction = payload.GetProperty("action").GetString();
+                        if (pullRequestAction != null)
+                        {
+                            action = $"{char.ToUpper(pullRequestAction[0])}{pullRequestAction[1..]} a pull request in {repoName}";
+                        }
+                        break;
+                    case "PublicEvent":
+                        action = $"Made {repoName} public";
+                        break;
+                    case "ReleaseEvent":
+                        var releaseAction = payload.GetProperty("action").GetString();
+                        if (releaseAction != null)
+                        {
+                            action = $"{char.ToUpper(releaseAction[0])}{releaseAction[1..]} a release in {repoName}";
+                        }
+                        break;
+                    default:
+                        action = "Undefined action";
+                        break;
+                }
+
+                Console.WriteLine($"* {action}");
+            }
+        }
+
+        private static async Task<JsonDocument> GetUserEvents(HttpClient client, string url)
+        {
             try
             {
 
@@ -34,67 +103,29 @@
 
                 if (response.StatusCode == HttpStatusCode.NotFound)
                 {
-                    Console.WriteLine("Invalid username, try again.");
-                    return;
+                    throw new Exception("Invalid username - try again.");
                 }
 
                 if (response.StatusCode == HttpStatusCode.Forbidden)
                 {
-                    Console.WriteLine("API Error, check UserAgent please.");
-                    return;
+                    throw new Exception("API Error - check request headers");
                 }
 
                 string responseBody = await response.Content.ReadAsStringAsync();
 
                 var jsonDocument = JsonDocument.Parse(responseBody);
+                var jsonFormatted = JsonSerializer.Serialize(jsonDocument);
 
-                foreach (var item in jsonDocument.RootElement.EnumerateArray())
+                if (jsonFormatted == "[]")
                 {
-                    var type = item.GetProperty("type").GetString();
-                    var action = string.Empty;
-                    var repoName = item.GetProperty("repo").GetProperty("name").GetString();
-                    var payload = item.GetProperty("payload");
-
-                    switch (type)
-                    {
-                        case "WatchEvent":
-                            action = $"Starred {repoName}";
-                            break;
-                        case "PushEvent":
-                            var numberCommits = payload.GetProperty("size");
-                            action = $"Pushed {numberCommits} commits to {repoName}";
-                            break;
-                        case "CreateEvent":
-                            action = $"Created {repoName}";
-                            break;
-                        case "DeleteEvent":
-                            action = $"Deleted {repoName}";
-                            break;
-                        case "ForkEvent":
-                            action = $"Forked {repoName}";
-                            break;
-                        case "IssuesEvent":
-                            var issueAction = payload.GetProperty("action").GetString();
-                            action = $"{char.ToUpper(issueAction[0])} {issueAction[1..]} an issue in {repoName}";
-                            break;
-                        case "PullRequestEvent":
-                            var pullRequestAction = payload.GetProperty("action").GetString();
-                            action = $"{char.ToUpper(pullRequestAction[0])} {pullRequestAction[1..]} a pull request in {repoName}";
-                            break;
-                        case "PublicEvent":
-                            action = $"Made {repoName} public";
-                            break;
-                        default:
-                            action = "Undefined action";
-                            break;
-                    }
-
-                    Console.WriteLine($"* {action}");
+                    throw new Exception("User has no registered activity");
                 }
+
+                return jsonDocument;
             }
             catch (HttpRequestException e)
             {
-                Console.WriteLine($"Request error: {e.Message}");
+                throw new Exception($"Request error: {e.Message}");
             }
         }
     }
