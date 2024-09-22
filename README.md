@@ -1,6 +1,6 @@
 # GitHub User Activity CLI
 
-`URL from the project task`: https://roadmap.sh/projects/github-activity
+`URL from the project task`: https://roadmap.sh/projects/github-user-activity
 
 `GitHub-UA-CLI` is a command-line tool written in C# that allows you to retrieve and display a GitHub user's latest activity, such as events like starring repositories, pushing commits, creating repositories, forking, and more.
 
