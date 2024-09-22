@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Franco Sistemas\\Desktop\\GitHub-UA-CLI\\GitHub-UA-CLI.csproj": {}
+    "F:\\Relocated\\Desktop\\GitHub-UA-CLI\\GitHub-UA-CLI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Franco Sistemas\\Desktop\\GitHub-UA-CLI\\GitHub-UA-CLI.csproj": {
+    "F:\\Relocated\\Desktop\\GitHub-UA-CLI\\GitHub-UA-CLI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Franco Sistemas\\Desktop\\GitHub-UA-CLI\\GitHub-UA-CLI.csproj",
+        "projectUniqueName": "F:\\Relocated\\Desktop\\GitHub-UA-CLI\\GitHub-UA-CLI.csproj",
         "projectName": "GitHub-UA-CLI",
-        "projectPath": "C:\\Users\\Franco Sistemas\\Desktop\\GitHub-UA-CLI\\GitHub-UA-CLI.csproj",
-        "packagesPath": "C:\\Users\\Franco Sistemas\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Franco Sistemas\\Desktop\\GitHub-UA-CLI\\obj\\",
+        "projectPath": "F:\\Relocated\\Desktop\\GitHub-UA-CLI\\GitHub-UA-CLI.csproj",
+        "packagesPath": "C:\\Users\\Matias\\.nuget\\packages\\",
+        "outputPath": "F:\\Relocated\\Desktop\\GitHub-UA-CLI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Franco Sistemas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Matias\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,12 +56,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }
